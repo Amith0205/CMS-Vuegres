@@ -27,22 +27,22 @@ function Product() {
   return (
     <div className="App">
       <div className="container">
-      <div className="picture">
-          {data[currIdx].Approved?<p className="status">Approved</p>:<p className="status">Declined</p>}
-          <img src={(`${data[currIdx].AdImage}`)} alt="graphics" className="img"/>
-          <div style={{display:"flex", justifyContent:"space-between"}}>
+        <div className="picture">
+          {data[currIdx].Approved ? <p className="status">Approved</p> : <p className="status">Declined</p>}
+          <img src={(`${data[currIdx].AdImage}`)} alt="graphics" className="img" />
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
             <i className="content--text">{data[currIdx].tagline}</i>
             <div className="author">
-            <p className="content--author">{data[currIdx].company}</p>            
-            </div> 
-          </div> 
+              <p className="content--author">{data[currIdx].company}</p>
+            </div>
+          </div>
 
-      </div>
+        </div>
 
-      <div className="content">
-          <Chat currIdx={currIdx} />             
-          
-                
+        <div className="content">
+          <Chat currIdx={currIdx} />
+
+
           <div className="button">
             <button className="left-btn" onClick={clickPrev} aria-label="Prev">
               <Prev />
@@ -50,12 +50,12 @@ function Product() {
             <button className="right-btn" onClick={clickNext} aria-label="Next">
               <Next />
             </button>
-          </div> 
+          </div>
         </div>
 
-        
+
       </div>
-      
+
     </div>
   );
 }
