@@ -18,7 +18,7 @@ export default class Chat extends Component {
     handleClick = (e) => {
         // console.log(this.state.message);
         let m = this.state.message;
-        { data[this.props.currIdx].Interactions.push({msg:m,by:"Bhavya",id:91}) }
+        { data[this.props.currIdx].Interactions.push({msg:m,by:"Bhavya",id:91,createdAt:new Date().toLocaleString('en-IN'),}) }
         this.setState(
             {
                 message: "",
@@ -33,21 +33,41 @@ export default class Chat extends Component {
     render() {
 
         return (
-            <div>
+             <div>
                 <section className="chatbox">
                     <section className="chat-window">
-                        {data[this.props.currIdx].Interactions.map((chats, index) => {
-                            return (
-                                <article className="msg-container msg-remote" key={index}>
+                    <article className="msg-container msg-remote">
                                     <div className="msg-box">
                                         <img className="user-img" src="//gravatar.com/avatar/00034587632094500000000000000000?d=retro" alt="avatar" />
                                         <div className="flr">
+                                        
+                                            <div className="messages">
+                                                <p className="msg">
+                                                    Looks Good!
+                                                </p>
+                                            </div>
+                                            <span className="timestamp"><span className="username">Client</span>
+                                            <br />
+                                            <span className="posttime">{new Date().toLocaleString('en-IN')}</span></span>
+                                        </div>
+                                    </div>
+
+                                </article>
+                        {data[this.props.currIdx].Interactions.map((chats, index) => {
+                            return (
+                                <article className="msg-container msg-self" key={index}>
+                                    <div className="msg-box">
+                                        <img className="user-img" src="//gravatar.com/avatar/00034587632094500000000000000000?d=retro" alt="avatar" />
+                                        <div className="flr">
+                                        
                                             <div className="messages">
                                                 <p className="msg">
                                                     {chats.msg}
                                                 </p>
                                             </div>
-                                            <span className="timestamp"><span className="username">Name:{chats.by}</span>&bull;<span className="posttime">{chats.createdAt}</span></span>
+                                            <span className="timestamp"><span className="username">{chats.by}</span>
+                                            <br />
+                                            <span className="posttime">{chats.createdAt}</span></span>
                                         </div>
                                     </div>
 
@@ -56,8 +76,11 @@ export default class Chat extends Component {
 
                             )
                         })}
+                        
 
                     </section>
+
+                    
                     <form className="chat-input" onSubmit={this.handleSubmit}>
                         <input type="text" autoComplete="on" placeholder="Type a message" name="message" value={this.state.message} onChange={this.handleChange} />
                         <button onClick={this.handleClick}>

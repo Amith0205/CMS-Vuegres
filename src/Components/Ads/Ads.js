@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import "../../home.css";
-import ProductCard from '../Productcard/ProductCard';
+import Adcopies from '../Adcopies/Adcopies';
 
-export default class Dashboard extends Component {
+
+export default class Ads extends Component {
   render() {
     return (
       <div>      
       <div className="featured">
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />         
+      <Adcopies />
+             
       </div>
       </div>
     )

@@ -1,18 +1,4 @@
-/* html,
-body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background: #1c1e22;
-} */
-/* body {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-    flex-direction: column;
-} */
+
 ::-webkit-scrollbar {
 	width: 4px;
 }
@@ -22,8 +8,8 @@ body {
 }
 .chatbox {
     width: 400px;
-    height: 400px;
-    max-height: 400px;
+    height: 450px;
+    max-height: 450px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -32,7 +18,7 @@ body {
 .chat-window {
     flex: auto;
     max-height: calc(100% - 60px);
-    background: #2f323b;
+    background: #fff;
     overflow: auto;
 }
 .chat-input {
@@ -92,6 +78,7 @@ body {
     width: auto;
     float: left;
     box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+    
 }
 .user-img {
     display: inline-block;
@@ -116,6 +103,7 @@ body {
     line-height: 13pt;
     color: rgba(255,255,255,.7);
     margin: 0 0 4px 0;
+    margin-left: 56px;
 }
 .msg:first-of-type {
     margin-top: 8px;
@@ -130,6 +118,8 @@ body {
 }
 .posttime {
     margin-left: 3px;
+    float: right;
+	font-size: 10px;
 }
 .msg-self .msg-box {
     border-radius: 6px 0 0 6px;
