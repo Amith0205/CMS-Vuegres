@@ -19,24 +19,26 @@ function Product() {
             setCurrIdx(currIdx + 1);
         }
     };
+
     return (
         <div className="App">
             <div className="container">
-            
+
                 <div className="picture">
-                <div className="author">
-                            <p className="content--author">
-                                {
-                                data[currIdx].company
-                            }
-                                                      
-                            </p>
-                            
-                        </div>
-                        <p className="version"> Version {data[currIdx].version} </p>
+                    <div className="author">
+                        <p className="content--author">
+                            {
+                            data[currIdx].company
+                        } </p>
+
+                    </div>
+                    <p className="version">
+                        Version {
+                        data[currIdx].version
+                    } </p>
                     {
                     data[currIdx].Approved ? <p className="status">Approved</p> : <p className="status">Declined</p>
-                    }
+                }
                     <img src={
                             (`${
                                 data[currIdx].AdImage
@@ -54,7 +56,7 @@ function Product() {
                             {
                             data[currIdx].tagline
                         }</i>
-                        
+
                     </div>
 
                 </div>
@@ -69,6 +71,16 @@ function Product() {
                             aria-label="Prev">
                             <Prev/>
                         </button>
+
+                        {/* <img src={
+                            (`${
+                                data[currIdx].AdImage
+                            }`)
+                        }
+                        alt="graphics"
+                        className="carimg"/> */}
+
+
                         <button className="right-btn"
                             onClick={clickNext}
                             aria-label="Next">
