@@ -37,18 +37,12 @@ export default class AddProduct extends Component {
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  // handleSubmit=(e)=>{
-  //     e.preventDefault();
-  //     addDoc();
-  //     alert("Product added");
-  // }
-
   render() {
     return (
       <div>
         <Form
           onSubmit={this.handleSubmit}
-          style={{ width: "40vw", margin: "30px" }}
+          style={{ width: "40vw", margin: "auto", marginTop:'4rem' }}
         >
           <Form.Group className="mb-3" controlId="formTagline">
             <Form.Label>Tagline</Form.Label>

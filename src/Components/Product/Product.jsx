@@ -39,13 +39,9 @@ class Product extends React.Component {
         const { products } = this.state;
         return (
             <div className="App">
-                <Button variant="dark"
-                    href={'/addproduct'} style={{ margin: "30px" }}>Add Version</Button>
                 <div className="container">
                     <ProductPage products={this.state.products} />
-
                 </div>
-
             </div>
         );
     }

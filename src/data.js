@@ -1,7 +1,7 @@
 import photo from '../src/img/images.png'
 export const data = [
     {
-        tagline: "Lorem Ipsum",
+        tagline: "This is tagline demo line.",
         status: true,
         approved:"Yes",
         company: "HUL",
@@ -18,7 +18,7 @@ export const data = [
 
         ]
     }, {
-        tagline: "Lorem Ipsum lorem ",
+        tagline: "This is tagline demo line. lorem ",
         status: false,
         approved:"",
         company: "Tata",
