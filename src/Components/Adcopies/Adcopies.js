@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 function Adcopies() {
     return (
         <Card style={
-            {width: '18rem'}
+            { width: '18rem' }
         }>
             <Card.Body>
                 <Card.Title>Ad 1</Card.Title>

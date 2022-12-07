@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import "../../home.css";
 import Adcopies from '../Adcopies/Adcopies';
 
@@ -8,7 +8,7 @@ export default class Ads extends Component {
         return (
             <div>
                 <div className="featured">
-                    <Adcopies/>
+                    <Adcopies />
 
                 </div>
             </div>
