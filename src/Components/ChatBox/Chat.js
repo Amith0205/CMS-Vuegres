@@ -40,7 +40,7 @@ export default class Chat extends Component {
     handleClick = (e) => { // console.log(this.state.message);
         let m = this.state.message;
         {
-            data[this.state.idx].Interactions.push({ msg: m, by: "Amith", id: 91, createdAt: new Date().toLocaleString('en-IN') })
+            data[this.state.idx].Interactions.push({ msg: m, by: "user", id: 91, createdAt: new Date().toLocaleString('en-IN') })
         }
         this.setState({ message: "" })
     }
@@ -66,7 +66,6 @@ export default class Chat extends Component {
 
                                         <div className="messages">
                                             <p className="msg">
-                                                {/* Looks Good! */}
                                                 {i.chats[ind].message}
                                             </p>
                                         </div>

@@ -11,7 +11,7 @@ function Adcopies() {
                 <Card.Text>
                     Get a free sample today.
                 </Card.Text>
-                <div>
+                <div >
                     <Button variant="primary" size="sm">
                         Accept
                     </Button>

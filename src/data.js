@@ -10,8 +10,8 @@ export const data = [
         Interactions: [
             {
                 id: 1,
-                msg: "Thank You",
-                by: "Amith",
+                msg: "Welcome!",
+                by: "user",
                 createdAt: "25/11/2022, 7:41:06 pm"
             },
 
@@ -27,8 +27,8 @@ export const data = [
         Interactions: [
             {
                 id: 1,
-                msg: "Hello",
-                by: "Amith",
+                msg: "Welcome!",
+                by: "user",
                 createdAt: "25/11/2022, 7:41:06 pm"
             },
         ]
