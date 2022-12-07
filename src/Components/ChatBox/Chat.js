@@ -1,15 +1,36 @@
 import React, {Component} from 'react';
 import './Chat.css';
 import {data} from "../../data.js";
+import { collection,
+    getDocs, 
+    } from 'firebase/firestore';
+import {app,database} from '../../index';
 
 export default class Chat extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            message: ""
+            interactions:[],
+            idx:0            
         }
 
+    }
+    componentDidMount(){
+        getDocs(collection(database,"interactions"))
+        .then((snapshot)=>{
+            console.log(snapshot);
+            const interactions=snapshot.docs.map((doc)=>{
+                const data=doc.data();
+                console.log(data);
+                data['id']=doc.id;
+                return data;
+            })
+            this.setState({
+                interactions:interactions,
+                loading:false
+            });
+        })
     }
 
     handleChange = (e) => {
@@ -18,7 +39,7 @@ export default class Chat extends Component {
     handleClick = (e) => { // console.log(this.state.message);
         let m = this.state.message;
         {
-            data[this.props.currIdx].Interactions.push({msg: m, by: "Amith", id: 91, createdAt: new Date().toLocaleString('en-IN')})
+            data[this.state.idx].Interactions.push({msg: m, by: "Amith", id: 91, createdAt: new Date().toLocaleString('en-IN')})
         }
         this.setState({message: ""})
     }
@@ -33,7 +54,8 @@ export default class Chat extends Component {
             <div>
                 <section className="chatbox">
                     <section className="chat-window">
-                        <article className="msg-container msg-remote">
+                    {this.state.interactions.map((i,ind)=>{
+                        return <article className="msg-container msg-remote">
                             <div className="msg-box"
                                 style={
                                     {background: " rgba(132, 209, 23, 0.1)"}
@@ -43,26 +65,36 @@ export default class Chat extends Component {
 
                                     <div className="messages">
                                         <p className="msg">
-                                            Looks Good!
+                                            {/* Looks Good! */}
+                                            {i.chats[ind].message}
                                         </p>
                                     </div>
                                     <span className="timestamp">
-                                        <span className="username">Client</span>
+                                        <span className="username">By: {                                         
+                                            i.chats[ind].by}</span>
                                         <br/>
-                                        <span className="posttime">
-                                            {
-                                            new Date().toLocaleString('en-IN')
-                                        }</span>
+                                        {/* new Date().toLocaleString('en-IN') */}
+                                        
+                                            {                                   
+                                                new Date(i.chats[ind].createdAt.nanoseconds).toLocaleString()
+                                                
+
+                                            }
+                                        
                                     </span>
                                 </div>
                             </div>
 
                         </article>
+                    })}
+                        
                         {
-                        data[this.props.currIdx].Interactions.map((chats, index) => {
+                        data[this.state.idx].Interactions.map((chats, index) => {
                             return (
+                            
                                 <article className="msg-container msg-self"
                                     key={index}>
+                                    
                                     <div className="msg-box">
                                         <img className="user-img" src="//gravatar.com/avatar/00034587632094500000000000000000?d=retro" alt="avatar"/>
                                         <div className="flr">
@@ -92,7 +124,8 @@ export default class Chat extends Component {
 
                             )
                         })
-                    } </section>
+                    } 
+                    </section>
 
 
                     <form className="chat-input"

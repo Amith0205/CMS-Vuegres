@@ -1,99 +1,57 @@
 import "./Product.css";
-import {data} from "../../data";
-import {ReactComponent as Prev} from "../../img/icon-prev.svg";
-import {ReactComponent as Next} from "../../img/icon-next.svg";
-import {useState} from "react";
+import React from 'react';
 import Chat from "../ChatBox/Chat";
+import Button from 'react-bootstrap/Button';
+import { collection,
+    getDocs, 
+    } from 'firebase/firestore';
+import {app,database} from '../../index';
+import ProductPage from "../ProductPage/productPage";
 
 
-function Product() {
-    const [currIdx, setCurrIdx] = useState(0);
-    const clickPrev = () => {
-        if (currIdx !== 0) {
-            setCurrIdx(currIdx - 1);
+class Product extends React.Component{
+    constructor(){
+        super();
+        this.state={
+            products:[],
+            loading:true,
+            currIdx:0
         }
-    };
+    }
+    componentDidMount(){
+        getDocs(collection(database,"collaterals"))
+        .then((snapshot)=>{
+            console.log(snapshot);
+            const products=snapshot.docs.map((doc)=>{
+                const data=doc.data();
+                console.log(data);
+                data['id']=doc.id;
+                return data;
+            })
+            this.setState({
+                products:products,
+                loading:false
+            });
+        })        
+    }
 
-    const clickNext = () => {
-        if (currIdx !== data.length - 1) {
-            setCurrIdx(currIdx + 1);
-        }
-    };
-
+    
+   
+    
+render(){
+    const {products}=this.state;
     return (
         <div className="App">
-            <div className="container">
-
-                <div className="picture">
-                    <div className="author">
-                        <p className="content--author">
-                            {
-                            data[currIdx].company
-                        } </p>
-
-                    </div>
-                    <p className="version">
-                        Version {
-                        data[currIdx].version
-                    } </p>
-                    {
-                    data[currIdx].Approved ? <p className="status">Approved</p> : <p className="status">Declined</p>
-                }
-                    <img src={
-                            (`${
-                                data[currIdx].AdImage
-                            }`)
-                        }
-                        alt="graphics"
-                        className="img"/>
-                    <div style={
-                        {
-                            display: "flex",
-                            justifyContent: "space-between"
-                        }
-                    }>
-                        <i className="content--text">
-                            {
-                            data[currIdx].tagline
-                        }</i>
-
-                    </div>
-
-                </div>
-
-                <div className="content">
-                    <Chat currIdx={currIdx}/>
-
-
-                    <div className="button">
-                        <button className="left-btn"
-                            onClick={clickPrev}
-                            aria-label="Prev">
-                            <Prev/>
-                        </button>
-
-                        {/* <img src={
-                            (`${
-                                data[currIdx].AdImage
-                            }`)
-                        }
-                        alt="graphics"
-                        className="carimg"/> */}
-
-
-                        <button className="right-btn"
-                            onClick={clickNext}
-                            aria-label="Next">
-                            <Next/>
-                        </button>
-                    </div>
-                </div>
-
-
+        <Button variant="dark"
+                    href={'/addproduct'} style={{margin:"30px"}}>Add Version</Button>
+            <div className="container">               
+                <ProductPage products={this.state.products} />
+                
             </div>
 
         </div>
     );
+}
 }
 
 export default Product;

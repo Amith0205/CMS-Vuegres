@@ -50,7 +50,7 @@
   
   .picture {
     position: relative;
-    min-width: 60%!important;
+    min-width: 45%;
   }
   .picture .bg-picture svg {
     width: 100%;

@@ -10,6 +10,7 @@ export default class Dashboard extends Component {
                     <ProductCard/>
                     <ProductCard/>
                     <ProductCard/>
+    
                 </div>
             </div>
         )

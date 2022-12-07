@@ -17,10 +17,10 @@ const Navibar = () => {
 
                     <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>
-                            <div className="navItems">
+                            {/* <div className="navItems">
                                 <button className="navButton">Register</button>
                                 <button className="navButton">Login</button>
-                            </div>
+                            </div> */}
                         </Navbar.Text>
                     </Navbar.Collapse>
 
