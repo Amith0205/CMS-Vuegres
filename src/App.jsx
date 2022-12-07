@@ -5,6 +5,7 @@ import Product from './Components/Product/Product';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Layout from './Components/Layout/Layout';
 import Ads from './Components/Ads/Ads';
+import AddProduct from './Components/Dashboard/AddProduct';
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
         path: '/ads',
         element: <Ads />,
       },
+      {
+        path: '/addproduct',
+        element: <AddProduct />,
+      }
      
     ]
   }
@@ -32,13 +37,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    // <div className="App">  
     <>
-    {/* <Switch>
-      <Route exact path='/' component={Dashboard} />
-      <Route path='/product' component={Product} />
-    </Switch>    */}
-    {/* </div> */}
     <RouterProvider router={router} />
      </> 
     
