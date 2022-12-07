@@ -58,9 +58,7 @@ export default class Chat extends Component {
                         {this.state.interactions.map((i, ind) => {
                             return <article className="msg-container msg-remote">
                                 <div className="msg-box"
-                                    style={
-                                        { background: " rgba(132, 209, 23, 0.1)" }
-                                    }>
+                                    >
                                     <img className="user-img" src="//gravatar.com/avatar/00034587632094500000000000000000?d=retro" alt="avatar" />
                                     <div className="flr">
 

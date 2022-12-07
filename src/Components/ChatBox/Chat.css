@@ -90,7 +90,7 @@
 }
 .msg-box {
     display: flex;
-    background: #5b5e6c;
+    background: #cec6c6;
     padding: 10px 10px 0 10px;
     border-radius: 0 6px 6px 0;
     width:70%;
@@ -150,7 +150,7 @@
     border-radius: 6px 0 0 6px;
     /* background: #2671ff; */
     /* color:; */
-    background:rgba(60, 190, 213, 0.1);
+    /* background:rgba(60, 190, 213, 0.1); */
     float: right;
     
 
