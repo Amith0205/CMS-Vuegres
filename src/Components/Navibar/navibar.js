@@ -2,8 +2,11 @@ import "./navibar.css";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Navigate } from "react-router-dom";
+
 
 const Navibar = () => {
+
     return (
         <div>
             <Navbar bg="dark" variant="dark">
@@ -13,8 +16,10 @@ const Navibar = () => {
                     <Nav className="me-auto">
                         <Nav.Link href="/">Graphics</Nav.Link>
                         <Nav.Link href="/ads">Ad Copies</Nav.Link>
+                        <Nav.Link href="/addproduct">Add Version</Nav.Link>
                     </Nav>
 
+                    {/******************** Login/Register buttons *********************/}
                     <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>
                             {/* <div className="navItems">
@@ -27,16 +32,6 @@ const Navibar = () => {
                 </Container>
             </Navbar>
         </div>
-    // <div className="navbar">
-    // <div className="navContainer">
-    //     <span className="logo" >Collateral Management System</span>
-
-    //
-    //       <button className="navButton">Register</button>
-    //       <button className="navButton">Login</button>
-    //     </div>
-    // </div>
-    // </div>
     )
 }
 
